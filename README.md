@@ -1,20 +1,67 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🏗️ MESTRES DA CONSTRUÇÃO - NPCARQ 2026
 
-# Run and deploy your AI Studio app
+O **Mestres da Construção** é uma plataforma de ranking em tempo real desenvolvida para a capacitação de trainees do NPCARQ em 2026. O sistema monitora o progresso dos participantes através da contagem de "tijolinhos", exibindo os líderes em um pódio dinâmico e uma lista detalhada de todos os competidores.
 
-This contains everything you need to run your app locally.
+## 🚀 Funcionalidades
 
-View your app in AI Studio: https://ai.studio/apps/357030ff-d9e2-4d00-9c84-46ec09a44d37
+- **Ranking em Tempo Real:** Integração direta com Google Sheets para atualização instantânea de pontos.
+- **Pódio Dinâmico:** Destaque visual para os 3 primeiros colocados com efeitos de animação.
+- **Tratamento Inteligente de Imagens:**
+  - Conversão automática de links do Google Drive.
+  - **Image Proxy:** Servidor interno que contorna restrições de exibição (embed) do Google Drive.
+  - **Fallback de Avatares:** Geração automática de avatares com iniciais caso a imagem falhe.
+- **Interface Futurista:** Design "Glassmorphism" com paleta de cores vibrantes e animações suaves via Framer Motion.
+- **Responsividade Total:** Otimizado para visualização em desktops, tablets e dispositivos móveis.
 
-## Run Locally
+## 🛠️ Tecnologias Utilizadas
 
-**Prerequisites:**  Node.js
+- **Frontend:**
+  - [React 18](https://reactjs.org/)
+  - [Vite](https://vitejs.dev/)
+  - [Tailwind CSS](https://tailwindcss.com/)
+  - [Motion (Framer Motion)](https://motion.dev/)
+  - [Lucide React](https://lucide.dev/) (Ícones)
+- **Backend (Proxy):**
+  - [Express](https://expressjs.com/) (Node.js)
+- **Dados:**
+  - [Google Apps Script](https://developers.google.com/apps-script) (API de integração com Planilhas)
 
+## 📁 Estrutura do Projeto
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```text
+├── src/
+│   ├── components/       # Componentes reutilizáveis
+│   ├── services/
+│   │   └── dataService.ts # Lógica de busca e tratamento de dados
+│   ├── App.tsx           # Componente principal e UI
+│   ├── main.tsx          # Ponto de entrada React
+│   └── index.css         # Estilização global e temas Tailwind
+├── server.ts             # Servidor Express com Proxy de Imagens
+├── index.html            # Template HTML principal
+└── package.json          # Dependências e scripts
+```
+
+## ⚙️ Configuração Técnica
+
+### Integração com Google Sheets
+O projeto consome dados de um Web App do Google Apps Script. A estrutura esperada dos dados (JSON) é:
+
+```json
+[
+  {
+    "name": "Nome do Trainee",
+    "tijolinhos": 150,
+    "imageUrl": "https://drive.google.com/..."
+  }
+]
+```
+
+### Proxy de Imagens
+Para evitar erros de `403 Forbidden` ou bloqueios de `Referer` ao exibir imagens do Google Drive, o projeto utiliza uma rota interna:
+`GET /api/proxy-image?url=...`
+
+Esta rota processa a requisição no servidor e entrega o buffer da imagem diretamente ao navegador.
+
+## ✒️ Créditos
+
+Desenvolvido para **CimatecJr • NPCARQ • 2026**.
