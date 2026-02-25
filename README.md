@@ -1,6 +1,6 @@
 # 🏗️ MESTRES DA CONSTRUÇÃO - NPCARQ 2026
 
-O **Mestres da Construção** é uma plataforma de ranking em tempo real desenvolvida para a capacitação de trainees do NPCARQ em 2026. O sistema monitora o progresso dos participantes através da contagem de "tijolinhos", exibindo os líderes em um pódio dinâmico e uma lista detalhada de todos os competidores.
+O **Mestres da Construção** é uma plataforma de ranking em tempo real desenvolvida para a capacitação de trainees do NPCARQ em 2026 da empresa junior CimatecJr. O sistema monitora o progresso dos participantes através da contagem de "tijolinhos", exibindo os líderes em um pódio dinâmico e uma lista detalhada de todos os competidores.
 
 ## 🚀 Funcionalidades
 
