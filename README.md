@@ -56,10 +56,6 @@ O projeto consome dados de um Web App do Google Apps Script. A estrutura esperad
 ]
 ```
 
-### Proxy de Imagens
-Para evitar erros de `403 Forbidden` ou bloqueios de `Referer` ao exibir imagens do Google Drive, o projeto utiliza uma rota interna:
-`GET /api/proxy-image?url=...`
-
 Esta rota processa a requisição no servidor e entrega o buffer da imagem diretamente ao navegador.
 
 ## ✒️ Créditos
